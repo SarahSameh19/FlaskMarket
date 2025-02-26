@@ -1,0 +1,19 @@
+- cmd
+- set FLASK_APP=market.py
+- flask shell
+- from market import db
+- db.create_all()
+- from market import Item
+- item1 = Item(name="IPhone 10", price=500, barcode=''846154104831", description="desc")
+- db.session.add(item1)
+- db.session.commit()
+- Item.query.all()
+- item2 = Item(name="Laptop", price=600, barcode="973415795325", description="laptop desc")
+- db.session.add(item2)
+- db.session.commit()
+- Item.query.all()
+- for item in Item.query.all(): (item.name, item.price, item.description, item.id, item.barcode,)
+- import os
+- os.system('cls')
+- Item.query.filter_by(price=500)
+- for item in Item.query.filter_by(price=500): (item.name)

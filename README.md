@@ -14,7 +14,7 @@ pip install flask
    ```
 2. Set the Flask application:
    ```cmd
-   set FLASK_APP=app.py
+   set FLASK_APP=market.py
    ```
 3. Run the Flask app:
    ```cmd
@@ -49,3 +49,22 @@ $env:FLASK_DEBUG = "1"
 ```
 ---
 Your Flask app should now be running at **http://127.0.0.1:5000/** 🚀
+
+## Running database from Command Prompt (cmd)
+1. Navigate to your project directory:
+   ```cmd
+   cd path\to\your\project
+   ```
+2. Set the Flask application:
+   ```cmd
+   set FLASK_APP=market.py
+   ```
+3. Run the Flask app:
+   ```cmd
+   flask shell
+   ```  
+4. Write anything then:
+   ```cmd
+   from market import db
+   db.create_all()
+   ````
