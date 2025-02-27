@@ -15,6 +15,7 @@ def home_page():
 @login_required
 def market_page():
     items = Item.query.all()
+    print("Items:", items)  # Debugging: Ensure items are retrieved
     return render_template('market.html', items=items)
 
 @app.route('/register', methods=['GET','POST'])
