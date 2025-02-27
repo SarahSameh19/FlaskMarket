@@ -17,3 +17,38 @@
 - os.system('cls')
 - Item.query.filter_by(price=500)
 - for item in Item.query.filter_by(price=500): (item.name)
+--------------------------------------------------------------------------------------------------------
+=> after applying changes in Model Relationships
+- flask shell
+- from maket.models import db
+- db.drop_all()
+- db.create_all()
+- from market.models import User, Item
+- u1 = User(username='sarah', password_hash='123456', email_address='sarah@gmail.com')
+- db.session.add(u1)
+- db.session.commit()
+- User.query.all()
+- i1 = Item(name='Iphone 10', description='description', barcode='123456789123', price=800)
+- db.session.add(i1)
+- db.session.commit()
+- i2 = Item(name='Laptop', description='description2', barcode='654321789123', price=1000)
+- db.session.add(u2)
+- db.session.commit()
+- Item.query.all()
+- item1 = Item.query.filter_by(name='Iphone 10')
+- item1 = Item.query.filter_by(name='Iphone 10').first()
+- item1.owner -> it will return nothing cuz it doesn't have an owner yet
+- item1.owner = User.query.filter_by(username='sarah').first()
+-  db.session.add(item1)
+- db.session.commit()
+---> we can't do that cuz the only way to access the item owner is by providing the id of user
+so now we will rollback our previous commit 
+- db.session.rollback()
+- item1.owner = User.query.filter_by(username='sarah').first().id
+- db.session.add(item1)
+- db.session.commit()
+- item1.owner
+---> we can also test this by filtering the item specifically
+- i = Item.query.filter_by(name='Iphone 10').first()
+- i.owned_user
+
