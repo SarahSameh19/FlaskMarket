@@ -85,4 +85,5 @@ Your Flask app should now be running at **http://127.0.0.1:5000/** 🚀
    import os
    os.urandom(12).hex()
    'secret_key generated'
+   pip install flask_bcrypt
    ```
